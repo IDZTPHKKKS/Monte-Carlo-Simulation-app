@@ -1,5 +1,5 @@
 # Monte Carlo Simulation App
-
+![](../images/icon.png)
 This **Monte Carlo Simulation App** is a web application built with Electron.js that demonstrates various applications of the Monte Carlo method across different domains, including finance, crypto, gambling, random walks, biology, and Linear Regression. The app provides interactive simulations and real-time data integrations to help users explore complex concepts using random sampling.
 
 ## Table of Contents
