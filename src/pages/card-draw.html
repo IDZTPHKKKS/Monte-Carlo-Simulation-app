@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Draw Simulation</title>
+    <link rel="stylesheet" href="../css/card-draw.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>🃏 Card Draw Simulation</h1>
+    </header>
+
+    <main>
+      <section id="card-draw-form">
+        <h2>Enter Your Card Draw Details</h2>
+        <form id="card-draw-input">
+          <label for="num-cards">Number of Cards to Draw:</label>
+          <input type="number" id="num-cards" min="1" required />
+
+          <label for="deck-type">Deck Type (Standard, Poker, Tarot):</label>
+          <select id="deck-type">
+            <option value="standard">Standard 52 Cards</option>
+            <option value="poker">Poker Deck (with Jokers)</option>
+            <option value="tarot">Tarot Deck</option>
+          </select>
+
+          <label for="num-simulations">Number of Simulations:</label>
+          <input type="number" id="num-simulations" min="1" required />
+
+          <button type="submit">Simulate Card Draw</button>
+        </form>
+      </section>
+
+      <section
+        id="card-draw-results"
+        class="output-section"
+        style="display: none"
+      >
+        <h2>Simulation Results</h2>
+        <div id="plot"></div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="gambling.html">Back to Gambling Simulations</a>
+    </footer>
+
+    <script src="../card-draw.js"></script>
+  </body>
+</html>

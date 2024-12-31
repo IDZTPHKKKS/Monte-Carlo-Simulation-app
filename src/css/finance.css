@@ -1,0 +1,210 @@
+
+
+#simulationGraph {
+  width: 80%;
+  height: 300px;
+  margin: 0 auto;
+  background-color: #000000;
+  border-radius: 10px;
+}
+
+body #results {
+  display: none;
+}
+
+
+select {
+  padding: 10px;
+  background-color: #2c2c2c;
+  color: #eaeaea;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+
+#simulationOutput {
+  margin-top: 20px;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+
+#results {
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin: 20px auto;
+}
+
+#stockSymbol {
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+  color: red;
+}
+
+
+#backButton {
+  background-color: #4db8ff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#backButton:hover {
+  background-color: #3398d4;
+}
+
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #121212;
+  color: #eaeaea;
+  text-align: center;
+  padding-top: 80px;
+}
+
+
+h1 {
+  font-size: 3rem;
+  color: #eaeaea;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+
+.simulation-container {
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.simulateBtn {
+  background-color: #7bff3e;
+}
+button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #388e3c;
+}
+
+#simulateBtn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+#simulateBtn:hover {
+  background-color: #218838;
+}
+
+form {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+input[type="number"] {
+  padding: 10px;
+  background-color: #2c2c2c;
+  color: #eaeaea;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: #4db8ff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3398d4;
+}
+
+
+.results {
+  background-color: #1e1e1e;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+#finalAmount {
+  font-size: 1.5rem;
+  color: #4db8ff;
+}
+
+canvas {
+  margin-top: 20px;
+  background-color: #2c2c2c;
+  border: 1px solid #333;
+}
+
+#backButton {
+  font-family: monospace;
+  background-color: #000;
+  color: #4db8ff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: 2px solid #4db8ff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  margin: 20px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#backButton:hover {
+  background-color: #0f0f0f;
+  color: #03e2ff;
+  border-color: #2fa7ed;
+}

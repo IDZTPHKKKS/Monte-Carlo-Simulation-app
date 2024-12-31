@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monte Carlo Simulation - Crypto</title>
+    <link rel="stylesheet" href="../css/crypto.css" />
+    <script src="https://cdn.plot.ly/plotly-2.16.1.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monte Carlo Simulation - Cryptocurrency</h1>
+    </header>
+    <main>
+      <section class="input-section">
+        <h2>Simulation Parameters</h2>
+        <form id="crypto-form">
+          <label for="crypto-symbol"
+            >Cryptocurrency Symbol(input full name):</label
+          >
+          <input
+            type="text"
+            id="crypto-symbol"
+            placeholder="e.g., bitcoin"
+            required
+          />
+
+          <label for="simulations">Number of Simulations:</label>
+          <input
+            type="number"
+            id="simulations"
+            min="1"
+            placeholder="e.g., 1000"
+            required
+          />
+
+          <label for="days">Prediction Days:</label>
+          <input
+            type="number"
+            id="days"
+            min="1"
+            placeholder="e.g., 30"
+            required
+          />
+
+          <button type="submit">Run Simulation</button>
+        </form>
+      </section>
+
+
+      <section id="current-data-section">
+        <h2>Current Cryptocurrency Data</h2>
+        <div id="current-data">
+        </div>
+      </section>
+
+
+      <section id="simulation-results-section">
+        <h2>Monte Carlo Simulation Results</h2>
+        <div id="simulation-results">
+        </div>
+        <div id="plot"></div>
+      </section>
+    </main>
+    <footer>
+      <a href="../../public/index.html">Back to Home</a>
+    </footer>
+    <script src="../crypto.js"></script>
+  </body>
+</html>

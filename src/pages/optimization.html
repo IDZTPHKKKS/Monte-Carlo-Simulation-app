@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monte Carlo Random Walk Simulation</title>
+    <link rel="stylesheet" href="../css/optimization.css" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../optimization.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Monte Carlo Random Walk Simulation</h1>
+    </header>
+
+    <section class="input-section">
+      <h2>Simulation Parameters</h2>
+      <form id="simulation-form">
+        <label for="num-steps">Number of Steps:</label>
+        <input
+          type="number"
+          id="num-steps"
+          name="num-steps"
+          value="10000"
+          min="1"
+          max="1000000"
+        />
+
+        <label for="num-walks">Number of Walks:</label>
+        <input
+          type="number"
+          id="num-walks"
+          name="num-walks"
+          value="100"
+          min="1"
+          max="100000"
+        />
+
+        <button type="submit">Start Simulation</button>
+      </form>
+    </section>
+
+    <section class="output-section">
+      <h2 style="font-family: 'Source Code Pro', monospace">
+        Simulation Results
+      </h2>
+      <div id="stats">
+        <p id="avg-distance">Average Distance: N/A</p>
+        <p id="std-dev">Standard Deviation: N/A</p>
+      </div>
+
+
+      <div class="plot-container">
+        <h3>Heatmap of Random Walks</h3>
+        <div id="heatmap" class="plot"></div>
+      </div>
+
+
+      <div class="plot-container">
+        <h3>CDF of Walk Distances</h3>
+        <div id="cdf-plot" class="plot"></div>
+      </div>
+
+      <div class="plot-container">
+        <h3>Interactive Path Visualization</h3>
+        <div id="path-plot" class="plot"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Monte Carlo Random Walk Simulation - Visualizing Random Movements</p>
+      <button onclick="location.href='../../public/index.html'">Go Back</button>
+    </footer>
+  </body>
+</html>

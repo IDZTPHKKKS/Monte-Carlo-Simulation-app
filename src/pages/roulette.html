@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roulette Monte Carlo Simulation</title>
+    <link rel="stylesheet" href="../css/roulette.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>🎰 Roulette Monte Carlo Simulation</h1>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <h2>Enter Your Bet Details</h2>
+        <form id="roulette-input">
+          <label for="num-spins">Number of Spins:</label>
+          <input type="number" id="num-spins" min="1" required />
+
+          <label for="num-simulations">Number of Simulations:</label>
+          <input type="number" id="num-simulations" min="1" required />
+
+          <label for="bet-type">Bet Type:</label>
+          <select id="bet-type" required>
+            <option value="red">Red</option>
+            <option value="black">Black</option>
+            <option value="odd">Odd</option>
+            <option value="even">Even</option>
+            <option value="number">Specific Number</option>
+          </select>
+
+          <label for="specific-number"
+            >Specific Number (if bet on number):</label
+          >
+          <input type="number" id="specific-number" min="0" max="36" />
+
+          <button type="submit">Run Simulation</button>
+        </form>
+      </section>
+
+      <section class="output-section" id="simulation-results">
+        <h2>Simulation Results</h2>
+        <div id="summary">
+          <p id="total-simulations">Total Simulations: 0</p>
+          <p id="total-wins">Total Wins: 0</p>
+          <p id="total-losses">Total Losses: 0</p>
+          <p id="probability">Win Probability: 0</p>
+        </div>
+
+        <button id="toggle-results-button" style="display: none">
+          Show Results of Each Round
+        </button>
+
+        <ul id="simulation-details" style="display: none"></ul>
+      </section>
+
+      <section>
+        <canvas id="simulationChart"></canvas>
+      </section>
+    </main>
+
+    <footer>
+      <a href="../../public/index.html">Back to Home</a>
+    </footer>
+
+    <script src="../roulette.js"></script>
+  </body>
+</html>

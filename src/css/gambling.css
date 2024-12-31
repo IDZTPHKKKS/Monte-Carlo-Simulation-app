@@ -1,0 +1,95 @@
+
+
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #121212;
+  color: #eaeaea;
+  text-align: center;
+  padding-top: 80px;
+  margin: 0;
+}
+
+
+header {
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #ff704d;
+  margin: 0;
+  font-weight: bold;
+}
+
+
+#simulation-options {
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+#simulation-options button {
+  font-family: "Source Code Pro", monospace;
+  background-color: #2c2c2c;
+  color: #eaeaea;
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, outline 0.3s ease;
+  display: inline-block;
+  width: 200px;
+}
+
+#simulation-options button:hover {
+  background-color: #1e1e1e;
+  outline: 3px solid #ff704d;
+  transform: scale(1.05);
+}
+
+
+#simulation-area {
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+#simulation-area h2 {
+  font-size: 1.8rem;
+  color: #eaeaea;
+  margin-bottom: 20px;
+}
+
+#results {
+  padding: 20px;
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  border: 1px solid #333;
+  color: #eaeaea;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+
+footer {
+  margin-top: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #4db8ff;
+  font-size: 1rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

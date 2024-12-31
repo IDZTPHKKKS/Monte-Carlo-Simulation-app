@@ -1,0 +1,130 @@
+
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #121212;
+  color: #eaeaea;
+  text-align: center;
+  padding-top: 80px;
+  margin: 0;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #ff6347;
+  margin: 0;
+  font-weight: bold;
+}
+
+.input-section {
+  margin: 0 auto;
+  padding: 20px;
+  width: 70%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.input-section h2 {
+  font-size: 1.8rem;
+  color: #eaeaea;
+  margin-bottom: 20px;
+}
+
+form {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  text-align: left;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 1rem;
+  color: #eaeaea;
+}
+
+input[type="number"] {
+  padding: 10px;
+  background-color: #2c2c2c;
+  color: #eaeaea;
+  border: 1px solid #333;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+button[type="submit"] {
+  background-color: #ff6347;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #e73f32;
+}
+
+.output-section {
+  margin: 40px auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+.output-section h2 {
+  font-size: 1.8rem;
+  color: #eaeaea;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  color: #eaeaea;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #ff6347;
+  font-size: 1rem;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+#toggle-results-button {
+  font-family: monospace;
+  color: orange;
+  background-color: black;
+  border: 2px solid orange;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#toggle-results-button:hover {
+  box-shadow: 0 0 10px orange;
+  border-color: #ffcc00;
+}

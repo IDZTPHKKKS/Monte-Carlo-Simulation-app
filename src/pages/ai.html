@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-statistics@7.7.0/dist/simple-statistics.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/synaptic@latest/dist/synaptic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/plotly.js-dist@2.16.0/plotly.min.js"></script>
+    <title>Linear Regression Monte Carlo Simulation</title>
+    <link rel="stylesheet" href="../css/ai.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Linear Regression</h1>
+      <p>Linear Regression using Monte Carlo methods.</p>
+    </header>
+
+    <section class="input-section">
+      <h2>Model Configuration</h2>
+      <form id="ai-form">
+        <label for="model">Choose AI Model:</label>
+        <select id="model" name="model">
+          <option value="regression">Linear Regression</option>
+        </select>
+
+        <label for="simulations">Number of Simulations:</label>
+        <input
+          type="number"
+          id="simulations"
+          name="simulations"
+          min="1"
+          value="100"
+          max="10000"
+        />
+
+        <label for="epochs">Epochs:</label>
+        <input
+          type="number"
+          id="epochs"
+          name="epochs"
+          min="1"
+          value="50"
+          disabled
+        />
+
+        <label for="learning-rate">Learning Rate:</label>
+        <input
+          type="range"
+          id="learning-rate"
+          name="learning-rate"
+          min="0.001"
+          max="0.1"
+          step="0.001"
+          value="0.01"
+        />
+        <span id="learning-rate-value">0.01</span>
+
+        <label for="data-set">Choose Dataset:</label>
+        <select id="data-set" name="data-set">
+          <option value="default">Default Dataset</option>
+          <option value="custom">Custom Dataset (Upload CSV)</option>
+        </select>
+
+        <div id="custom-dataset" style="display: none">
+          <input type="file" id="csv-file" name="csv-file" accept=".csv" />
+        </div>
+
+        <div id="column-selection" style="display: none">
+          <label for="x-column">Select X Column:</label>
+          <select id="x-column" name="x-column"></select>
+
+          <label for="y-column">Select Y Column:</label>
+          <select id="y-column" name="y-column"></select>
+        </div>
+
+        <label for="input-data">Enter X Data (comma-separated):</label>
+        <input
+          type="text"
+          id="input-data"
+          name="input-data"
+          placeholder="1,2,3,4"
+        />
+
+        <label for="output-data">Enter Y Data (comma-separated):</label>
+        <input
+          type="text"
+          id="output-data"
+          name="output-data"
+          placeholder="2,4,6,8"
+        />
+
+        <label for="predict-x">Enter X Value for Prediction:</label>
+        <input type="text" id="predict-x" name="predict-x" placeholder="5" />
+
+        <button type="submit">Run Simulation</button>
+      </form>
+    </section>
+
+    <section class="output-section">
+      <h2>Simulation Results</h2>
+      <div id="results">
+        <h3>Prediction Results</h3>
+        <p id="predictions"></p>
+        <h3>Error Analysis</h3>
+        <p id="error-analysis"></p>
+        <h3>Optimization Progress</h3>
+        <div id="optimization-progress">
+          <div class="progress-bar" id="progress-bar"></div>
+          <p id="progress-status"></p>
+        </div>
+      </div>
+      <div id="plot"></div>
+    </section>
+
+    <footer>
+      <p>
+        Shyaam 2024 |
+        <a href="../../public/index.html" id="back-to-home">Back to Main</a> |
+      </p>
+    </footer>
+
+    <script src="../ai.js"></script>
+    <script>
+      // JavaScript to toggle the custom dataset file input visibility
+      document
+        .getElementById("data-set")
+        .addEventListener("change", function () {
+          const datasetType = this.value;
+          const customDatasetInput = document.getElementById("custom-dataset");
+          const columnSelection = document.getElementById("column-selection");
+
+          if (datasetType === "custom") {
+            customDatasetInput.style.display = "block"; // Show file input
+            columnSelection.style.display = "none"; // Hide column selection until file is uploaded
+          } else {
+            customDatasetInput.style.display = "none"; // Hide file input
+            columnSelection.style.display = "none"; // Hide column selection
+          }
+        });
+
+      // Handle form submission
+      document
+        .getElementById("ai-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const datasetType = document.getElementById("data-set").value;
+          let inputData = null;
+          let outputData = null;
+
+          if (datasetType === "default") {
+            inputData = document
+              .getElementById("input-data")
+              .value.split(",")
+              .map(Number);
+            outputData = document
+              .getElementById("output-data")
+              .value.split(",")
+              .map(Number);
+          } else if (datasetType === "custom") {
+            const fileInput = document.getElementById("csv-file");
+            const file = fileInput.files[0];
+
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                const csvData = e.target.result;
+                const parsedData = Papa.parse(csvData, { header: true });
+                const headers = parsedData.meta.fields;
+
+                // Populate column selection dropdowns
+                const xColumnSelect = document.getElementById("x-column");
+                const yColumnSelect = document.getElementById("y-column");
+
+                // Clear previous options
+                xColumnSelect.innerHTML = "";
+                yColumnSelect.innerHTML = "";
+
+                headers.forEach((header) => {
+                  const option = document.createElement("option");
+                  option.value = header;
+                  option.textContent = header;
+                  xColumnSelect.appendChild(option.cloneNode(true));
+                  yColumnSelect.appendChild(option.cloneNode(true));
+                });
+
+                // Show the column selection dropdowns
+                document.getElementById("column-selection").style.display =
+                  "block";
+
+                // Handle column selection and data processing
+                document
+                  .getElementById("column-selection")
+                  .addEventListener("change", function () {
+                    const xColumn = xColumnSelect.value;
+                    const yColumn = yColumnSelect.value;
+
+                    if (xColumn && yColumn) {
+                      inputData = parsedData.data.map((row) =>
+                        parseFloat(row[xColumn])
+                      );
+                      outputData = parsedData.data.map((row) =>
+                        parseFloat(row[yColumn])
+                      );
+
+                      if (inputData.length !== outputData.length) {
+                        alert(
+                          "The number of x-values must match the number of y-values."
+                        );
+                        return;
+                      }
+
+                      // Normalize data
+                      inputData = normalizeData(inputData);
+                      outputData = normalizeData(outputData);
+
+                      // Further processing (e.g., training the model) can be done here
+                      console.log("Input Data:", inputData);
+                      console.log("Output Data:", outputData);
+                    }
+                  });
+              };
+              reader.readAsText(file);
+            }
+          }
+
+          // You can use inputData and outputData for further processing (like training the model)
+          console.log("Input Data:", inputData);
+          console.log("Output Data:", outputData);
+        });
+
+      // Function to normalize data
+      function normalizeData(data) {
+        const min = Math.min(...data);
+        const max = Math.max(...data);
+        return data.map((value) => (value - min) / (max - min));
+      }
+    </script>
+  </body>
+</html>

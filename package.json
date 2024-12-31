@@ -1,0 +1,44 @@
+{
+  "name": "monte-carlo-simulation",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "electron-builder"
+  },
+  "keywords": [],
+  "author": "Shyaam Mahesh",
+  "license": "MIT",
+  "description": "An app for simulating Monte-Carlo simulations",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "apexcharts": "^3.40.0",
+    "axios": "^1.7.9",
+    "decision-tree": "^0.3.7",
+    "papaparse": "^5.4.1",
+    "plotly.js": "^2.19.0",
+    "type": "module",
+    "yahoo-finance2": "^2.13.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.6.0",
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.Wassup.Shyaam",
+    "productName": "Monte-Carlo Simulations",
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "icon": "build/icon.icns"
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": "AppImage"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap");
+
+body {
+  font-family: "Source Code Pro", monospace;
+  background-color: #121212;
+  color: #eaeaea;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+footer {
+  margin-top: 150px;
+  font-size: 0.9rem;
+  color: #4db8ff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #eaeaea;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+  width: 80%;
+  height: 60%;
+}
+
+.box {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  padding: 30px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-size: 1.5rem;
+  color: #4db8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  background-color: #333;
+  border-color: #4db8ff;
+}
+
+button {
+  background-color: #4db8ff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #3398d4;
+}
+
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
+    height: 75%;
+  }
+
+  .box {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+}

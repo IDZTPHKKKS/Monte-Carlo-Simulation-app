@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roll Monte Carlo Simulation</title>
+    <link rel="stylesheet" href="../css/dice-roll.css" />
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>🎲 Dice Roll Monte Carlo Simulation</h1>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <h2>Enter Your Prediction Details</h2>
+        <form id="dice-input">
+          <label for="num-rolls">Number of Simulations:</label>
+          <input type="number" id="num-rolls" min="1" required />
+
+          <label for="target-value">Target Dice Value (1-6):</label>
+          <input type="number" id="target-value" min="1" max="6" required />
+
+          <button type="submit">Run Simulation</button>
+        </form>
+      </section>
+
+      <section class="output-section" id="simulation-results">
+        <h2>Simulation Results</h2>
+        <p id="total-simulations">Total Simulations: 0</p>
+        <p id="total-count">Total Count: 0</p>
+        <p id="probability">Probability: 0</p>
+        <h3>Round Details:</h3>
+        <button id="show-results-button">Show Results of Each Round</button>
+        <ul id="round-results" style="display: none"></ul>
+
+        <!-- Graph Section -->
+        <h3>Simulation Graph</h3>
+        <canvas id="simulationChart"></canvas>
+      </section>
+    </main>
+
+    <footer>
+      <a href="gambling.html">Back to Gambling Simulations</a>
+    </footer>
+
+    <script src="../dice-roll.js"></script>
+  </body>
+</html>

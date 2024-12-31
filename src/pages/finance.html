@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Simulation - Monte Carlo</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="../css/finance.css" />
+  </head>
+  <body>
+    <h1>Finance Simulation - Monte Carlo</h1>
+
+    <form id="financeForm">
+      <label for="initialInvestment">Initial Investment ($):</label>
+      <input
+        type="number"
+        id="initialInvestment"
+        placeholder="10000"
+        required
+      />
+
+      <label for="annualInterest">Annual Interest Rate (%):</label>
+      <input type="number" id="annualInterest" placeholder="5" required />
+
+      <label for="years">Number of Years:</label>
+      <input type="number" id="years" placeholder="30" required />
+
+      <label for="simulations">Number of Simulations:</label>
+      <input type="number" id="simulations" placeholder="1000" required />
+
+      <div id="currentPriceOutput"></div>
+
+      <label for="distributionSelect">Select Distribution:</label>
+      <select id="distributionSelect">
+        <option value="normal">Normal Distribution</option>
+        <option value="uniform">Uniform Distribution</option>
+        <option value="lognormal">Log-normal Distribution</option>
+        <option value="exponential">Exponential Distribution</option>
+        <option value="pareto">Pareto Distribution</option>
+        <option value="weibull">Weibull Distribution</option>
+        <option value="gamma">Gamma Distribution</option>
+        <option value="beta">Beta Distribution</option>
+        <option value="logistic">Logistic Distribution</option>
+        <option value="binomial">Binomial Distribution</option>
+        <option value="poisson">Poisson Distribution</option>
+        <option value="chiSquared">Chi-Squared Distribution</option>
+        <option value="cauchy">Cauchy Distribution</option>
+        <option value="studentT">Student's T Distribution</option>
+      </select>
+
+      <button type="button" id="simulateBtn">Run Simulation</button>
+    </form>
+
+    <div id="results" style="display: none">
+      <h2>Simulation Results</h2>
+      <div id="simulationOutput"></div>
+      <div id="simulationGraph" style="height: 400px"></div>
+    </div>
+
+    <footer>
+      <button
+        id="backButton"
+        onclick="location.href='../../public/index.html';"
+      >
+        Go Back
+      </button>
+    </footer>
+
+    <script src="../renderer.js"></script>
+  </body>
+</html>

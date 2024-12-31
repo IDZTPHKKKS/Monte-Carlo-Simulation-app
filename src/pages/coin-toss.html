@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coin Toss Simulation</title>
+    <link rel="stylesheet" href="../css/coin-toss.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Coin Toss Simulation</h1>
+    </header>
+
+    <main>
+      <section class="input-section">
+        <h2>Enter Simulation Parameters</h2>
+        <form id="coin-toss-form">
+          <label for="num-tosses">Number of Tosses per Simulation:</label>
+          <input type="number" id="num-tosses" value="32" required />
+
+          <label for="num-simulations">Number of Simulations:</label>
+          <input type="number" id="num-simulations" value="50" required />
+
+          <button type="submit">Run Simulation</button>
+        </form>
+      </section>
+
+      <section class="output-section" id="simulation-results">
+        <h2>Simulation Results</h2>
+        <div id="summary">
+          <p id="total-simulations"></p>
+          <p id="average-results"></p>
+        </div>
+        <button id="toggle-results-button">Show Results of Each Round</button>
+        <ul id="simulation-details" style="display: none"></ul>
+      </section>
+
+      <section>
+        <canvas id="simulationChart"></canvas>
+      </section>
+    </main>
+
+    <footer>
+      <a href="gambling.html">Back to Main</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../coin-toss.js"></script>
+  </body>
+</html>

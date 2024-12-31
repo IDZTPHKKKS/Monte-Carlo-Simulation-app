@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Your local .gitignore entries
+node_modules/
+dist/
+build/
+*.log
+.DS_Store
+.env
