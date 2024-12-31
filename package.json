@@ -9,7 +9,7 @@
   },
   "keywords": [],
   "author": "Shyaam Mahesh",
-  "license": "MIT",
+  "license": "GPL-3.0",
   "description": "An app for simulating Monte-Carlo simulations",
   "dependencies": {
     "@tensorflow/tfjs": "^4.22.0",
